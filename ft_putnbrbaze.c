@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 21:09:42 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/21 03:57:19 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:12:29 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putnbr_base(int nbr, char *base, int *count)
 {
-	size_t	lenght;
-	size_t	nb;
+	long	lenght;
+	long	nb;
 
 	nb = nbr;
 	lenght = ft_strlen(base);

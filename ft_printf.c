@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:32:32 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/21 19:52:19 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:16:28 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ void  ft_format_type(const char *format, int *count , va_list args, int *i)
 		ft_putstr(va_arg(args, char *), count);
 	else if(format[*i + 1] == 'i' ||format[*count + 1] == 'd')
 		ft_putnbr_base(va_arg(args, int) , "0123456789",count);
+	else if(format[*i + 1] == 'u')
+		ft_putnbr_base(va_arg(args,unsigned int) , "0123456789",count);
 	else if (format[*i + 1] == 'x')
-	{
-		// ft_putstr("0x",count);
 		ft_putnbr_base(va_arg(args,int), "0123456789abcdef", count);
-	}
 	else if (format[*i + 1] == 'X')
-	{
-		// ft_putstr("0x", count);
 		ft_putnbr_base(va_arg(args,int), "0123456789ABCDEF", count);
+	else if (format[*i + 1] == 'p')
+	{
+		ft_putstr("0x" , count);
+		ft_putnbr_base(va_arg(args,int), "0123456789abcdef", count);
 	}
 	else if (format[*i + 1] == '%')
 		ft_putchar('%' , count);
