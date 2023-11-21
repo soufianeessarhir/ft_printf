@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 21:02:38 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/20 21:14:16 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:27:24 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putchar(char c, int *count)
 {
 	write(1, &c, 1);
-	*count++;
+	*count += 1;
 }

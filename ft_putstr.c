@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 21:04:43 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/21 03:54:56 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:35:23 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr(char *s, int *count)
 
 	i = 0;
 	if (!s)
-		return ;
+		ft_putstr("NULL", count);
 	while (s[i])
 	{
 		ft_putchar(s[i],count);

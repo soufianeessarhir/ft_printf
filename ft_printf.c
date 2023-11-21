@@ -6,30 +6,33 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:32:32 by sessarhi          #+#    #+#             */
-/*   Updated: 2023/11/21 07:29:10 by sessarhi         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:52:19 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void  ft_format_type(int *count)
+void  ft_format_type(const char *format, int *count , va_list args, int *i)
 {
-	if (format[*count + 1] = 'c')
-		ft_putchar();
-	else if(format[*count + 1] = 's')
-		ft_putstr();
-	else if(format[*count + 1] = 'i' ||format[*count + 1] = 'd')
-		ft_putnbr_base();
-	else if (format[*count + 1] = 'x')
+	if (format[*i + 1] == 'c')
+		ft_putchar(va_arg(args,unsigned int),count);
+	else if(format[*i + 1] == 's')
+		ft_putstr(va_arg(args, char *), count);
+	else if(format[*i + 1] == 'i' ||format[*count + 1] == 'd')
+		ft_putnbr_base(va_arg(args, int) , "0123456789",count);
+	else if (format[*i + 1] == 'x')
 	{
-		ft_putstr("0x");
-		ft_putnbr_base();
+		// ft_putstr("0x",count);
+		ft_putnbr_base(va_arg(args,int), "0123456789abcdef", count);
 	}
-	else if (format[*count + 1] = 'X')
+	else if (format[*i + 1] == 'X')
 	{
-		ft_putstr("0X");
-		ft_putnbr_base();
+		// ft_putstr("0x", count);
+		ft_putnbr_base(va_arg(args,int), "0123456789ABCDEF", count);
 	}
+	else if (format[*i + 1] == '%')
+		ft_putchar('%' , count);
+	*i += 1;
 }
 int	ft_printf(const char *format, ...)
 {
@@ -40,17 +43,19 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	if (!format)
-		return -1;
+		return (-1);
 	va_start(args,format);
+	
 	while (format[i])
 	{
-		va_arg(args, format);
 		if (format[i] == '%')
 		{
-			ft_format_type(&i)
+			ft_format_type(format, &count, args, &i);
 		}
 		else
 			ft_putchar(format[i],&count);
+		i++;
 	}
-	
+	va_end(args);
+	return (count);
 }
