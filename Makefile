@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SOURCES =ft_printf.c ft_putchar.c ft_putnbrbaze.c ft_putstr.c ft_strlen.c\
+SOURCES = ft_printf.c ft_putchar.c ft_putnbrbaze.c ft_putstr.c ft_strlen.c\
 
 
 OBJECTS = $(SOURCES:.c=.o)
@@ -23,4 +23,4 @@ fclean: clean
 
 re: fclean all
 
-# .phony all clean fclean re
+.phony : all clean fclean re
